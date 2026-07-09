@@ -1,10 +1,10 @@
-# Rearning UI v3.5
+# Rearning UI v3.6
 
 ## 修正内容
-- ロック画面上部の謎の「R」表示を削除
-- 代わりにアプリアイコンを表示
-- APP_VERSIONをv3.5へ更新
-- v3.4の上部タブSVGイラスト追加内容は維持
+- 学習内テスト（quizタブ）を開いている間は、上部の丸ナビを非表示
+- テスト以外のタブに戻ると、上部の丸ナビを再表示
+- CH6 / CH7 の両方に適用
+- APP_VERSIONをv3.6へ更新
 
 ## 使い方
 GitHubの Reearning / public / index.html を、この index.html で上書きしてください。

@@ -1,23 +1,20 @@
-# Rearning UI v3.2 single-file
+# Rearning UI v3.3 fix
 
-## 重要
-今回の版は、画面内イラスト・実績画像をすべて index.html に埋め込み済みです。
-そのため public/trophies や public/illustrations の配置ミスで「？」や壊れた画像になる問題を回避できます。
+## 修正内容
+- カード内に画像データの文字列が出る不具合を修正
+- iPhoneで画像が壊れる可能性を避けるため、画面内画像をJPEG data URLでindex.htmlに埋め込み
+- 未獲得トロフィーは画像・タイトル・詳細を見せない仕様に変更
+- 未獲得トロフィーはタップ不可
+- テスト画面のクリック競合を修正
+- APP_VERSIONをv3.3へ更新
 
-## GitHubでの使い方
-Rearning / public / index.html を、この index.html で上書きしてください。
+## 使い方
+GitHubの Reearning / public / index.html を、この index.html で上書きしてください。
 
-必要なら下記も同じ階層に上書きしてください。
-- manifest.webmanifest
-- icon-192.png
-- icon-512.png
-- apple-touch-icon.png
-- favicon-32.png
-
-## フォルダについて
-この版では trophies フォルダ、illustrations フォルダは不要です。
-残っていても問題ありませんが、表示には使いません。
+## 注意
+古い表示が残る場合は、PWAをホーム画面から削除してSafariで開き直してください。
 
 ## チェック
-残存外部画像参照: 0
-主要絵文字チェック: {'🔥': 0, '🏆': 0, '📱': 0, '📦': 0, '🎯': 0, '📚': 0, '🎉': 0, '❓': 0}
+外部画像参照: 0
+主要絵文字: {'🔥': 0, '🏆': 0, '📱': 0, '📦': 0, '🎯': 0, '📚': 0, '🎉': 0, '❓': 0}
+埋め込み画像数: 27

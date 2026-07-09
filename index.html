@@ -3007,5 +3007,33 @@ function bootApp(){
 })();
 
 </script>
+
+<script>
+/* ===== PWA Offline Cache: Service Worker registration ===== */
+(function(){
+  if (!("serviceWorker" in navigator)) return;
+
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(function(reg){
+        if (reg && reg.update) reg.update();
+
+        reg.addEventListener("updatefound", function(){
+          var nw = reg.installing;
+          if (!nw) return;
+          nw.addEventListener("statechange", function(){
+            if (nw.state === "installed" && navigator.serviceWorker.controller) {
+              console.log("Rearning: new offline cache is ready.");
+            }
+          });
+        });
+      })
+      .catch(function(err){
+        console.warn("Rearning: service worker registration failed", err);
+      });
+  });
+})();
+</script>
+
 </body>
 </html>

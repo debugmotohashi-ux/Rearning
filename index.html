@@ -379,6 +379,39 @@ nav#nav button.on i{color:var(--ink);font-weight:800}
 .timg{border-radius:12px}
 .gate-title{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:22px}
 #gate-btn{background:var(--grad)}
+
+
+/* ===== v3.0 Clean Instagram-like redesign ===== */
+:root{
+  --bg:#FAFAFA; --card:#FFFFFF; --ink:#16181D; --sub:#8E8E93; --line:#EFEFF4;
+  --main:#FF6B6B; --main2:#FFB86C; --blue:#4F8CFF; --green:#34C759; --gold:#F7B733;
+  --grad:linear-gradient(135deg,#FF6B6B 0%,#FFB86C 100%);
+  --soft:0 12px 28px rgba(16,24,40,.06);
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',YuGothic,Meiryo,sans-serif;}
+body{padding-bottom:92px;font-size:15px;line-height:1.55}
+.ig-header{position:sticky;top:0;z-index:55;display:flex;align-items:center;justify-content:space-between;padding:14px 18px 10px;background:rgba(250,250,250,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(239,239,244,.85)}
+.hlogo{font-size:28px;font-weight:900;letter-spacing:-.045em;color:var(--ink);background:none;-webkit-background-clip:initial;background-clip:initial}
+.hcopy{font-size:11.5px;font-weight:700;color:var(--sub);margin-top:-2px;letter-spacing:.01em}
+.streakbadge{font-size:12px;font-weight:800;color:#C75B12;background:#FFF3E8;border:1px solid #FFE1C7;border-radius:999px;padding:7px 11px;box-shadow:none}
+#view{max-width:760px;margin:0 auto;padding:0 0 8px}
+.ig-tabbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:flex;gap:0;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid #EDEDF2;padding:7px 8px calc(env(safe-area-inset-bottom,0px) + 7px)}
+.ig-tabbar button{appearance:none;border:0;background:transparent;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#A1A1AA;font-size:10px;font-weight:750;line-height:1;padding:5px 0 4px;border-radius:14px}
+.ig-tabbar svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2.05;stroke-linecap:round;stroke-linejoin:round}
+.ig-tabbar button.on{color:var(--ink);background:transparent}.ig-tabbar button.on svg{stroke:var(--ink)}
+.ig-page{padding:16px 16px 28px}.ig-page-title{font-size:26px;font-weight:900;letter-spacing:-.04em;line-height:1.1}.ig-page-sub{font-size:13px;font-weight:650;color:var(--sub);margin-top:5px}.ig-section{margin-top:24px}.ig-section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:10px}.ig-section-title{font-size:16px;font-weight:900;letter-spacing:-.02em}.ig-section-link{font-size:12px;font-weight:800;color:var(--sub);border:0;background:transparent;padding:0}
+.ig-hero{border-radius:28px;background:linear-gradient(145deg,#FFFFFF 0%,#FFF8F4 100%);border:1px solid var(--line);padding:18px;box-shadow:var(--soft)}
+.ig-hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.ig-hero h1{font-size:24px;font-weight:950;letter-spacing:-.045em;line-height:1.16}.ig-hero p{font-size:13px;font-weight:650;color:var(--sub);margin-top:7px}.ig-ring{width:66px;height:66px;border-radius:50%;background:conic-gradient(var(--main) var(--p),#EFEFF4 0);display:flex;align-items:center;justify-content:center;flex:none}.ig-ring span{width:54px;height:54px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:950;font-size:14px;color:var(--ink)}
+.ig-stories{display:flex;gap:12px;overflow-x:auto;padding:4px 16px 12px;margin:0 -16px;scrollbar-width:none}.ig-stories::-webkit-scrollbar{display:none}.ig-story{appearance:none;border:0;background:transparent;min-width:68px;text-align:center;padding:0;color:var(--ink)}.ig-story-face{width:62px;height:62px;border-radius:50%;padding:2.5px;background:var(--grad);display:flex;margin:0 auto 6px}.ig-story-face span{width:100%;height:100%;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}.ig-story-face img{width:100%;height:100%;object-fit:cover;border-radius:50%}.ig-story-face b{font-size:18px}.ig-story-label{font-size:10.8px;font-weight:800;white-space:nowrap;color:#3A3A3C;max-width:72px;overflow:hidden;text-overflow:ellipsis}.ig-story.done .ig-story-face{background:#DADAE0}.ig-story.done img{filter:grayscale(.15);opacity:.72}
+.ig-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:var(--soft)}.ig-card + .ig-card{margin-top:12px}.ig-card-row{display:flex;gap:14px;align-items:center}.ig-card-icon{width:48px;height:48px;border-radius:16px;background:#F6F6F8;display:flex;align-items:center;justify-content:center;flex:none;font-weight:900;color:var(--ink);overflow:hidden}.ig-card-icon img{width:100%;height:100%;object-fit:cover}.ig-card-main{min-width:0;flex:1}.ig-card-title{font-size:15px;font-weight:900;letter-spacing:-.01em}.ig-card-sub{font-size:12.5px;color:var(--sub);font-weight:650;margin-top:2px}.ig-card-meta{display:flex;align-items:center;gap:8px;margin-top:10px}.ig-progress{height:7px;background:#EFEFF4;border-radius:999px;overflow:hidden;flex:1}.ig-progress span{display:block;height:100%;width:0;background:var(--grad);border-radius:999px}.ig-badge{font-size:11px;font-weight:850;padding:4px 8px;border-radius:999px;background:#F5F5F7;color:#636366;white-space:nowrap}.ig-badge.done{background:#EAF9EF;color:#1A7F3C}.ig-badge.hot{background:#FFF3E8;color:#C75B12}.ig-btn{appearance:none;border:0;border-radius:16px;background:var(--ink);color:#fff;font-family:inherit;font-weight:900;font-size:14px;min-height:48px;padding:0 16px;display:inline-flex;align-items:center;justify-content:center;gap:6px}.ig-btn.primary{background:var(--grad);box-shadow:0 10px 20px rgba(255,107,107,.18)}.ig-btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}.ig-btn.full{width:100%;margin-top:14px}.ig-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ig-statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ig-stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 10px;text-align:center}.ig-stat b{display:block;font-size:20px;font-weight:950;letter-spacing:-.04em}.ig-stat span{display:block;font-size:11px;font-weight:750;color:var(--sub);margin-top:2px}.ig-mini-trophies{display:flex;gap:10px}.ig-mini-trophy{width:62px;height:62px;border-radius:18px;background:#fff;border:1px solid var(--line);overflow:hidden;box-shadow:var(--soft)}.ig-mini-trophy img{width:100%;height:100%;object-fit:cover}.ig-empty{border:1px dashed #D8D8DE;border-radius:18px;padding:14px;background:#fff;color:var(--sub);font-size:13px;font-weight:650;text-align:center}
+.ig-learn-card{position:relative;overflow:hidden}.ig-learn-card:after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,rgba(255,107,107,.12),rgba(255,184,108,.12));pointer-events:none}.ig-chiprow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}.ig-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:850;color:#3A3A3C;white-space:nowrap}.ig-chip.on{background:var(--ink);border-color:var(--ink);color:#fff}.ig-test-hero{background:#16181D;color:#fff;border:0}.ig-test-hero .ig-card-sub{color:rgba(255,255,255,.68)}.ig-test-hero .ig-btn{background:#fff;color:#16181D}.ig-test-list .ig-card-icon{background:#F7F7FA}
+.ig-trophy-top{padding:16px 16px 0}.ig-trophy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.ig-trophy-cell{appearance:none;border:1px solid var(--line);border-radius:18px;background:#fff;padding:7px 7px 10px;text-align:left;overflow:hidden;box-shadow:none;color:var(--ink)}.ig-trophy-img{aspect-ratio:1/1;border-radius:14px;background:#F4F4F6;display:flex;align-items:center;justify-content:center;overflow:hidden}.ig-trophy-img img{width:100%;height:100%;object-fit:cover}.ig-trophy-cell.locked .ig-trophy-img img{filter:grayscale(1) blur(1px);opacity:.38}.ig-trophy-cell.hidden .ig-trophy-img{font-size:26px;color:#B6B6BE}.ig-trophy-name{font-size:11.2px;font-weight:900;margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ig-trophy-state{font-size:10px;font-weight:800;color:var(--sub);margin-top:1px}.ig-trophy-cell.got{border-color:#F5D08A;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#F7B733,#FFD98A) border-box;border:1.4px solid transparent}.ig-modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.42);display:none;align-items:flex-end}.ig-modal.on{display:flex}.ig-modal-card{width:100%;max-width:520px;margin:0 auto;background:#fff;border-radius:28px 28px 0 0;padding:18px 18px calc(env(safe-area-inset-bottom,0px) + 18px);box-shadow:0 -18px 44px rgba(0,0,0,.18)}.ig-modal-img{width:156px;height:156px;border-radius:28px;overflow:hidden;margin:0 auto 14px;background:#F4F4F6}.ig-modal-img img{width:100%;height:100%;object-fit:cover}.ig-modal-title{text-align:center;font-size:20px;font-weight:950;letter-spacing:-.04em}.ig-modal-sub{text-align:center;font-size:13px;color:var(--sub);font-weight:650;margin:6px auto 16px;max-width:320px}.ig-modal-meta{background:#F7F7F9;border-radius:18px;padding:13px 14px;font-size:13px;color:#3A3A3C;font-weight:650;margin-bottom:12px}
+.ig-profile-head{text-align:center;background:#fff;border:1px solid var(--line);border-radius:26px;padding:20px 16px;box-shadow:var(--soft)}.ig-avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 10px;background:var(--grad);padding:3px}.ig-avatar span{display:flex;width:100%;height:100%;border-radius:50%;background:#fff;align-items:center;justify-content:center;font-size:26px;font-weight:950;color:var(--ink)}.ig-profile-name{font-size:20px;font-weight:950;letter-spacing:-.04em}.ig-profile-sub{font-size:12px;font-weight:750;color:var(--sub);margin-top:3px}.ig-timeline{background:#fff;border:1px solid var(--line);border-radius:22px;padding:6px 16px}.ig-log{display:flex;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}.ig-log:last-child{border-bottom:0}.ig-log-dot{width:8px;height:8px;background:var(--grad);border-radius:50%;margin-top:7px;flex:none}.ig-log-title{font-size:13px;font-weight:850}.ig-log-sub{font-size:12px;color:var(--sub);font-weight:650;margin-top:1px}
+.ig-lesson-top{padding:12px 16px;background:rgba(250,250,250,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);position:sticky;top:62px;z-index:45;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}.ig-back{appearance:none;border:0;background:#fff;border:1px solid var(--line);width:38px;height:38px;border-radius:50%;font-size:18px;font-weight:900;color:var(--ink)}.ig-lesson-title{font-size:16px;font-weight:950}.ig-lesson-sub{font-size:11px;font-weight:750;color:var(--sub);margin-top:-1px}.ig-lesson-wrap{padding-bottom:24px}
+#view #nav{position:sticky;top:113px;z-index:40;display:flex;gap:12px;overflow-x:auto;padding:12px 16px;background:rgba(250,250,250,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);scrollbar-width:none}#view #nav::-webkit-scrollbar{display:none}#view #nav button{flex:0 0 auto;width:62px;border:0;background:transparent;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--sub);font-size:10.5px;font-weight:850;min-width:62px}#view #nav button .ring{width:56px;height:56px;border-radius:50%;background:#DADAE0;padding:2px;display:block}#view #nav button .ring>span{display:block;width:100%;height:100%;border-radius:50%;background:#fff;padding:2px}#view #nav button .face{display:flex;width:100%;height:100%;border-radius:50%;background:#F6F6F8;align-items:center;justify-content:center;font-size:20px}#view #nav button.on .ring{background:var(--grad)}#view #nav button.on{color:var(--ink)}#view main{padding:16px;max-width:760px;margin:0 auto}#view section .lead{font-size:13px;font-weight:650;color:var(--sub);line-height:1.65;margin-bottom:12px}.card{border-radius:20px;border:1px solid var(--line);box-shadow:var(--soft);margin-bottom:12px}.card .head{padding:15px 16px}.card .head .nm{font-size:15px;font-weight:900}.body{padding:0 16px 16px}.tag{border-radius:999px}.qwrap{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:26px;box-shadow:var(--soft);margin:0;padding:18px}.qwrap .qq{color:var(--ink);font-size:17px}.qwrap .qtop{color:var(--sub)}.qwrap .qcat{background:#F5F5F7;color:#3A3A3C}.qwrap .opt{background:#fff;border-color:var(--line);color:var(--ink);border-radius:17px}.qwrap .opt.sel{border-color:#FFB86C;background:#FFF7EF;box-shadow:none;color:var(--ink)}.qwrap .opt.correct{background:#EAF9EF;color:#0D5C2B}.qwrap .opt.wrong{background:#FFF0F1;color:#A61B25}.qwrap .fb.ok{background:#EAF9EF;color:#0D5C2B}.qwrap .fb.ng{background:#FFF0F1;color:#A61B25}.qwrap .fb .res{color:inherit}.qwrap .qbk,.qwrap .qstop{background:#F5F5F7;color:var(--ink);border:0}.segbar i{background:#EFEFF4}.segbar i.done{background:#16181D}.segbar i.now{background:var(--grad)}.btn{background:var(--ink);border-radius:16px;box-shadow:none}.btn.ghost{background:#fff;border:1px solid var(--line)}footer{font-size:10.5px;color:#A1A1AA;padding:14px 16px 100px}.gate-box{border-radius:26px}.gate-title{background:none;color:var(--ink);-webkit-background-clip:initial;background-clip:initial}#gate-btn{background:var(--ink);border-radius:16px}
+@media (min-width:700px){.ig-page{padding-left:22px;padding-right:22px}.ig-trophy-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.ig-modal{align-items:center}.ig-modal-card{border-radius:28px;margin:0 auto;padding-bottom:18px}.ig-lesson-top{top:63px}}
+
 </style>
 </head>
 <body>
@@ -393,11 +426,29 @@ nav#nav button.on i{color:var(--ink);font-weight:800}
     <div class="gate-ver" id="gatever"></div>
   </div>
 </div>
-<header><div class="hlogo">Rearning</div><div class="streakbadge" id="streak">🔥 1日</div></header>
-<div id="appbar">
-  <button data-view="ch6" class="on"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>プラン</span></button>
-  <button data-view="ch7"><svg viewBox="0 0 24 24"><path d="M4 4.5C4 3.7 4.7 3 5.5 3H12v18H5.5c-.8 0-1.5-.7-1.5-1.5z"/><path d="M20 4.5c0-.8-.7-1.5-1.5-1.5H12v18h6.5c.8 0 1.5-.7 1.5-1.5z"/></svg><span>商材</span></button>
-  <button data-view="trophy"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M6 6H3v1a3 3 0 0 0 3 3M18 6h3v1a3 3 0 0 1-3 3"/></svg><span>トロフィー</span></button>
+<header class="ig-header">
+  <div>
+    <div class="hlogo">Rearning</div>
+    <div class="hcopy">短く学んで、現場で使う。</div>
+  </div>
+  <div class="streakbadge" id="streak">🔥 1日</div>
+</header>
+<div id="appbar" class="ig-tabbar">
+  <button data-view="home" class="on" aria-label="ホーム">
+    <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg><span>ホーム</span>
+  </button>
+  <button data-view="learn" aria-label="学習">
+    <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5z"/></svg><span>学習</span>
+  </button>
+  <button data-view="test" aria-label="テスト">
+    <svg viewBox="0 0 24 24"><path d="M9 8.5v7l6-3.5z"/><circle cx="12" cy="12" r="9"/></svg><span>テスト</span>
+  </button>
+  <button data-view="trophy" aria-label="トロフィー">
+    <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M6 6H3v1a3 3 0 0 0 3 3M18 6h3v1a3 3 0 0 1-3 3"/></svg><span>実績</span>
+  </button>
+  <button data-view="profile" aria-label="自分">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg><span>自分</span>
+  </button>
 </div>
 <div id="view"></div>
 <footer>Rearning <span id="appver"></span> ／ 出典：教育者用台本・au/UQ・各社公式（2026-06／北海道）</footer>
@@ -408,7 +459,7 @@ nav#nav button.on i{color:var(--ink);font-weight:800}
    ※変更したら、このファイルをNetlify等に置き直すと全員に反映されます
    ========================================== */
 var APP_PASSWORD = "au2026";
-var APP_VERSION  = "v2.1";
+var APP_VERSION  = "v3.0";
 
 var TROIMG = {
   "ch6-own-beginner": "trophies/ch6-own-beginner.png",
@@ -2558,6 +2609,148 @@ var App = {
 };
 window.App=App;
 
+/* ===================== v3.0 Instagram-like Shell ===================== */
+(function(){
+  function pct(n,d){ return d?Math.round(n*100/d):0; }
+  function clamp(n){ return Math.max(0,Math.min(100,n)); }
+  function trophy(id){ return TROPHIES.find(function(t){return t.id===id;})||{}; }
+  function img(id){ return (typeof TROIMG!=="undefined"&&TROIMG[id])?TROIMG[id]:""; }
+  function earnedBase(){ return TROPHIES.filter(function(t){return Trophy.has(t.id);}); }
+  function allEarned(ids){ return ids.filter(function(id){return Trophy.has(id);}).length; }
+  function progress(ids){ return pct(allEarned(ids),ids.length); }
+  function activeTab(view){
+    var key=(view==="lesson")?"learn":view;
+    document.querySelectorAll("#appbar button").forEach(function(b){b.classList.toggle("on",b.dataset.view===key);});
+  }
+  function setHeader(){
+    try{var _stk=Streak.get();var _se=document.getElementById("streak");if(_se)_se.textContent="🔥 "+((_stk&&_stk.n)||1)+"日";}catch(e){}
+    var av=document.getElementById("appver"); if(av && typeof APP_VERSION!=="undefined") av.textContent=APP_VERSION;
+  }
+  var GROUPS={
+    own6:["ch6-own-beginner","ch6-own-intermediate","ch6-own-advanced"],
+    oth6:["ch6-others-beginner","ch6-others-intermediate","ch6-others-advanced","ch6-closer"],
+    own7:["ch7-own-beginner","ch7-own-intermediate","ch7-own-advanced"],
+    oth7:["ch7-others-beginner","ch7-others-intermediate","ch7-others-advanced","ch7-closer"],
+    hidden:["h-start","h-both","h-tabs","h-cards","h-test"],
+    all:["ch6-own-beginner","ch6-own-intermediate","ch6-own-advanced","ch6-others-beginner","ch6-others-intermediate","ch6-others-advanced","ch6-closer","ch7-own-beginner","ch7-own-intermediate","ch7-own-advanced","ch7-others-beginner","ch7-others-intermediate","ch7-others-advanced","ch7-closer","master","h-start","h-both","h-tabs","h-cards","h-test"]
+  };
+  function card(title,sub,icon,meta,btn,attrs,prog,badge){
+    var ic=icon&&icon.indexOf("trophies/")===0?'<img src="'+icon+'" alt="">':'<b>'+icon+'</b>';
+    return '<div class="ig-card ig-learn-card" '+(attrs||'')+'><div class="ig-card-row"><div class="ig-card-icon">'+ic+'</div><div class="ig-card-main"><div class="ig-card-title">'+title+'</div><div class="ig-card-sub">'+sub+'</div>'+
+      '<div class="ig-card-meta"><div class="ig-progress"><span style="width:'+clamp(prog||0)+'%"></span></div><span class="ig-badge '+((prog||0)>=100?'done':(prog||0)>0?'hot':'' )+'">'+(badge||((prog||0)>=100?'完了':(prog||0)>0?'途中':'未着手'))+'</span></div></div></div>'+
+      (btn?'<button class="ig-btn primary full" '+(attrs||'')+'>'+btn+'</button>':'')+'</div>';
+  }
+  function stories(){
+    var list=[
+      {l:"まずは",id:"ch6-own-beginner",open:"ch6",tab:"plans"},
+      {l:"説明",id:"ch6-own-intermediate",open:"ch6",tab:"quiz"},
+      {l:"比較",id:"ch6-others-beginner",open:"ch6",tab:"others"},
+      {l:"商材",id:"ch7-own-beginner",open:"ch7",tab:"ov"},
+      {l:"復習",id:"h-test",view:"test"},
+      {l:"実績",id:"master",view:"trophy"}
+    ];
+    return '<div class="ig-stories">'+list.map(function(x){
+      var done=Trophy.has(x.id); var src=img(x.id); var attr=x.view?'data-go="'+x.view+'"':'data-open-lesson="'+x.open+'" data-tab="'+x.tab+'"';
+      return '<button class="ig-story '+(done?'done':'')+'" '+attr+'><span class="ig-story-face"><span>'+(src?'<img src="'+src+'" alt="">':'<b>•</b>')+'</span></span><span class="ig-story-label">'+x.l+'</span></button>';
+    }).join('')+'</div>';
+  }
+  function recentTrophies(){
+    var got=earnedBase().filter(function(t){return !t.hidden||Trophy.has(t.id);});
+    got=got.slice(-3).reverse();
+    if(!got.length) return '<div class="ig-empty">まだトロフィーはありません。最初のテストから始めましょう。</div>';
+    return '<div class="ig-mini-trophies">'+got.map(function(t){return '<button class="ig-mini-trophy" data-trophy="'+t.id+'"><img src="'+img(t.id)+'" alt="'+t.t+'"></button>';}).join('')+'</div>';
+  }
+  function renderHome(v){
+    var got=Trophy.count(), total=TROPHIES.length, pr=pct(got,total), st=(Streak.get()||{}).n||1;
+    v.innerHTML='<div class="ig-page">'+
+      '<div class="ig-hero"><div class="ig-hero-top"><div><h1>今日も少しだけ<br>進めよう。</h1><p>1回3分。現場で使う知識だけを短く確認します。</p></div><div class="ig-ring" style="--p:'+pr+'%"><span>'+pr+'%</span></div></div><button class="ig-btn primary full" data-open-lesson="ch6" data-tab="quiz">今日の確認テストを始める</button></div>'+
+      '<div class="ig-section">'+stories()+'</div>'+
+      '<div class="ig-section"><div class="ig-section-head"><div class="ig-section-title">続きから</div><button class="ig-section-link" data-go="learn">すべて見る</button></div>'+card('自社プラン基礎','まずはここから。UQ/auの土台を確認。','📱','', '続きからやる','data-open-lesson="ch6" data-tab="plans"',progress(GROUPS.own6))+'</div>'+
+      '<div class="ig-section"><div class="ig-section-head"><div class="ig-section-title">最近のトロフィー</div><button class="ig-section-link" data-go="trophy">一覧</button></div>'+recentTrophies()+'</div>'+
+      '<div class="ig-section"><div class="ig-section-title" style="margin-bottom:10px">今の状態</div><div class="ig-statgrid"><div class="ig-stat"><b>'+st+'</b><span>連続日数</span></div><div class="ig-stat"><b>'+got+'</b><span>獲得</span></div><div class="ig-stat"><b>'+pr+'%</b><span>達成率</span></div></div></div>'+
+      '</div>';
+  }
+  function renderLearn(v){
+    v.innerHTML='<div class="ig-page"><div class="ig-page-title">学習</div><div class="ig-page-sub">必要なところだけ、短く確認。</div>'+
+      '<div class="ig-section"><div class="ig-chiprow"><button class="ig-chip on">おすすめ</button><button class="ig-chip">自社</button><button class="ig-chip">他社比較</button><button class="ig-chip">サービス</button><button class="ig-chip">クローザー</button></div>'+
+      card('自社プラン','UQ/auの現行プラン・過去プラン・用語を確認。','📱','', '開く','data-open-lesson="ch6" data-tab="plans"',progress(GROUPS.own6),'プラン編')+
+      card('他社比較','docomo/SoftBank/楽天などを事実ベースで比較。','⚖️','', '開く','data-open-lesson="ch6" data-tab="others"',progress(GROUPS.oth6),'比較')+
+      card('サービス','カード・でんき・ネット・銀行などの商材理解。','📦','', '開く','data-open-lesson="ch7" data-tab="ov"',progress(GROUPS.own7),'商材編')+
+      card('総合提案','プランとサービスを組み合わせて提案につなげる。','🎯','', 'テストへ','data-go="test"',progress(GROUPS.oth7),'仕上げ')+
+      '</div></div>';
+  }
+  function renderTest(v){
+    v.innerHTML='<div class="ig-page"><div class="ig-page-title">テスト</div><div class="ig-page-sub">試験ではなく、現場前の確認。</div>'+
+      '<div class="ig-section">'+
+      '<div class="ig-card ig-test-hero"><div class="ig-card-title" style="font-size:18px">今日の確認テスト</div><div class="ig-card-sub">10〜20問。分からないところだけ復習に残します。</div><button class="ig-btn full" data-open-lesson="ch6" data-tab="quiz">プラン確認を始める</button></div>'+
+      '</div><div class="ig-section ig-test-list"><div class="ig-section-title" style="margin-bottom:10px">選べるテスト</div>'+
+      card('プラン編','自社プラン・他社比較・通話OPの確認。','📱','', '始める','data-open-lesson="ch6" data-tab="quiz"',progress(GROUPS.own6.concat(GROUPS.oth6)),'確認')+
+      card('サービス編','カード・でんき・ネット・銀行の確認。','📦','', '始める','data-open-lesson="ch7" data-tab="quiz"',progress(GROUPS.own7.concat(GROUPS.oth7)),'確認')+
+      card('トロフィー確認','獲得状況を見て次に取るものを決める。',img('master'),'', '見る','data-go="trophy"',pct(Trophy.count(),TROPHIES.length),'実績')+
+      '</div></div>';
+  }
+  function trophyCell(t){
+    var earned=Trophy.has(t.id), hidden=t.hidden&&!earned, src=img(t.id), name=earned?t.t:(hidden?'???':t.t), state=earned?'獲得済み':(hidden?'未発見':'未獲得');
+    return '<button class="ig-trophy-cell '+(earned?'got':'locked')+' '+(hidden?'hidden':'')+'" data-trophy="'+t.id+'"><div class="ig-trophy-img">'+(hidden?'?':'<img src="'+src+'" alt="'+t.t+'">')+'</div><div class="ig-trophy-name">'+name+'</div><div class="ig-trophy-state">'+state+'</div></button>';
+  }
+  function renderTrophy(v){
+    var got=Trophy.count(), total=TROPHIES.length, pr=pct(got,total);
+    var html='<div class="ig-page"><div class="ig-page-title">トロフィー</div><div class="ig-page-sub">'+got+' / '+total+' 獲得中</div><div class="ig-card" style="margin-top:14px"><div class="ig-card-meta" style="margin-top:0"><div class="ig-progress"><span style="width:'+pr+'%"></span></div><span class="ig-badge hot">'+pr+'%</span></div></div>';
+    var groups=['プラン','サービス','認定','隠し'];
+    groups.forEach(function(g){
+      var items=TROPHIES.filter(function(t){return t.grp===g;});
+      var gg=items.filter(function(t){return Trophy.has(t.id);}).length;
+      html+='<div class="ig-section"><div class="ig-section-head"><div class="ig-section-title">'+g+'</div><div class="ig-section-link">'+gg+'/'+items.length+'</div></div><div class="ig-trophy-grid">'+items.map(trophyCell).join('')+'</div></div>';
+    });
+    html+='</div><div class="ig-modal" id="trophyModal"><div class="ig-modal-card"><div id="trophyModalBody"></div><button class="ig-btn ghost full" data-close-modal="1">閉じる</button></div></div>';
+    v.innerHTML=html;
+  }
+  function renderProfile(v){
+    var got=Trophy.count(), total=TROPHIES.length, pr=pct(got,total), st=(Streak.get()||{}).n||1;
+    var next=TROPHIES.find(function(t){return !Trophy.has(t.id)&&!t.hidden;})||TROPHIES.find(function(t){return !Trophy.has(t.id);});
+    var title=got>=total?'総合提案クローザー':(got>=10?'一人前':'Rearning Learner');
+    v.innerHTML='<div class="ig-page"><div class="ig-profile-head"><div class="ig-avatar"><span>R</span></div><div class="ig-profile-name">'+title+'</div><div class="ig-profile-sub">短く学んで、現場で使う</div><div class="ig-statgrid" style="margin-top:18px"><div class="ig-stat"><b>'+st+'</b><span>連続</span></div><div class="ig-stat"><b>'+got+'</b><span>実績</span></div><div class="ig-stat"><b>'+pr+'%</b><span>達成</span></div></div></div>'+
+      '<div class="ig-section"><div class="ig-section-title" style="margin-bottom:10px">次の目標</div><div class="ig-card"><div class="ig-card-row"><div class="ig-card-icon">'+(next?'<img src="'+img(next.id)+'" alt="">':'✓')+'</div><div class="ig-card-main"><div class="ig-card-title">'+(next?next.t:'全トロフィー獲得済み')+'</div><div class="ig-card-sub">'+(next?(next.hint||next.sub||'次のテストに挑戦しよう'):'完了しています')+'</div><div class="ig-card-meta"><div class="ig-progress"><span style="width:'+pr+'%"></span></div><span class="ig-badge hot">次へ</span></div></div></div></div></div>'+
+      '<div class="ig-section"><div class="ig-section-title" style="margin-bottom:10px">最近の動き</div><div class="ig-timeline"><div class="ig-log"><span class="ig-log-dot"></span><div><div class="ig-log-title">アプリを開きました</div><div class="ig-log-sub">今日の学習準備OK</div></div></div><div class="ig-log"><span class="ig-log-dot"></span><div><div class="ig-log-title">トロフィー '+got+' 個獲得中</div><div class="ig-log-sub">一覧から次の目標を確認できます</div></div></div><div class="ig-log"><span class="ig-log-dot"></span><div><div class="ig-log-title">バージョン '+(APP_VERSION||'')+'</div><div class="ig-log-sub">UI v3.0</div></div></div></div></div></div>';
+  }
+  function openLesson(ch,tab){
+    var v=document.getElementById('view'); activeTab('lesson'); App.current=ch; App.lastChapter=ch;
+    v.innerHTML='<div class="ig-lesson-top"><button class="ig-back" data-go="learn">‹</button><div><div class="ig-lesson-title">'+(ch==='ch6'?'プラン学習':'サービス学習')+'</div><div class="ig-lesson-sub">必要な項目を選んで確認</div></div></div><div class="ig-lesson-wrap" id="lessonWrap"></div>';
+    var w=document.getElementById('lessonWrap');
+    if(ch==='ch6'){ w.innerHTML=window.CH6.html; window.CH6.init(); App.trackChapter('ch6'); }
+    else { w.innerHTML=window.CH7.html; window.CH7.init(); App.trackChapter('ch7'); }
+    if(tab){ var b=w.querySelector('#nav button[data-t="'+tab+'"]'); if(b) setTimeout(function(){b.click();},0); }
+    var act=w.querySelector('#nav button.on'); if(act) App.trackTab(ch,act.dataset.t);
+    window.scrollTo(0,0);
+  }
+  App.go=function(view){
+    var v=document.getElementById('view'); if(!v) return; v.innerHTML=''; activeTab(view); App.current=view; setHeader();
+    if(view==='home') renderHome(v);
+    else if(view==='learn') renderLearn(v);
+    else if(view==='test') renderTest(v);
+    else if(view==='trophy') renderTrophy(v);
+    else if(view==='profile') renderProfile(v);
+    else if(view==='ch6') openLesson('ch6','plans');
+    else if(view==='ch7') openLesson('ch7','ov');
+    window.scrollTo(0,0);
+  };
+  App.openLesson=openLesson;
+  App.showTrophy=function(){App.go('trophy');};
+  App.renderTrophy=renderTrophy;
+  document.addEventListener('click',function(e){
+    var go=e.target.closest&&e.target.closest('[data-go]'); if(go){ App.go(go.dataset.go); return; }
+    var ol=e.target.closest&&e.target.closest('[data-open-lesson]'); if(ol){ openLesson(ol.dataset.openLesson,ol.dataset.tab||null); return; }
+    var close=e.target.closest&&e.target.closest('[data-close-modal]'); if(close){ var m=document.getElementById('trophyModal'); if(m)m.classList.remove('on'); return; }
+    var tc=e.target.closest&&e.target.closest('[data-trophy]'); if(tc){
+      var id=tc.dataset.trophy, t=trophy(id), m=document.getElementById('trophyModal'), body=document.getElementById('trophyModalBody'); if(!m||!body||!t.id) return;
+      var earned=Trophy.has(id), hidden=t.hidden&&!earned;
+      body.innerHTML='<div class="ig-modal-img">'+(hidden?'<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:42px;color:#B6B6BE">?</div>':'<img src="'+img(id)+'" alt="'+t.t+'">')+'</div><div class="ig-modal-title">'+(hidden?'???':t.t)+'</div><div class="ig-modal-sub">'+(earned?(t.sub||'獲得済みです'):(t.hint||t.sub||'条件を達成すると獲得できます'))+'</div><div class="ig-modal-meta">状態：'+(earned?'獲得済み':'未獲得')+'</div>';
+      m.classList.add('on');
+    }
+  });
+})();
+
+
 /* ===================== 共通：クリック委譲（隠し：カード・タブ） ===================== */
 document.addEventListener("click", function(e){
   if(!e.target.closest) return;
@@ -2572,7 +2765,7 @@ function bootApp(){
     document.querySelectorAll("#appbar button").forEach(function(b){ b.onclick=function(){ App.go(b.dataset.view); }; });
   try{var _stk=Streak.touch();var _se=document.getElementById("streak");if(_se)_se.textContent="🔥 "+_stk.n+"日";}catch(e){}
     var av=document.getElementById("appver"); if(av && typeof APP_VERSION!=="undefined") av.textContent=APP_VERSION;
-    App.go("ch6"); App.trackLaunch();
+    App.go("home"); App.trackLaunch();
   }
   catch(err){ var vv=document.getElementById("view"); if(vv) vv.innerHTML='<div style="padding:24px;color:#C5221F;font-size:14px;line-height:1.7">読み込みエラー：'+(err&&err.message)+'</div>'; }
 }

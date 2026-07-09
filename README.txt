@@ -1,38 +1,23 @@
-# Rearning UI v3.1 差し替えセット
+# Rearning UI v3.2 single-file
 
-## 修正内容
-- 画面内の絵文字表示を撤去
-- ホーム上部の丸アイコンをイラスト化
-- 「？」プレースホルダーを撤去
-- 未獲得トロフィーも画像を薄く表示する仕様に変更
-- 最近の実績が空の場合も専用イラストを表示
-- UI表記を「トロフィー」より「実績」寄りに調整
-- APP_VERSION を v3.1 に更新
+## 重要
+今回の版は、画面内イラスト・実績画像をすべて index.html に埋め込み済みです。
+そのため public/trophies や public/illustrations の配置ミスで「？」や壊れた画像になる問題を回避できます。
 
-## GitHubでの配置
-あなたのリポジトリが public フォルダを使っている場合は、ZIP内の public フォルダの中身を
-GitHubの Reearning / public 直下にアップロードしてください。
+## GitHubでの使い方
+Rearning / public / index.html を、この index.html で上書きしてください。
 
-正しい配置:
-public/
-  index.html
-  manifest.webmanifest
-  icon-192.png
-  icon-512.png
-  apple-touch-icon.png
-  favicon-32.png
-  trophies/
-    ch6-own-beginner.png
-    ...
-  illustrations/
-    first-step.png
-    explanation.png
-    comparison.png
-    products.png
-    review.png
-    trophy.png
-    plan-basic.png
+必要なら下記も同じ階層に上書きしてください。
+- manifest.webmanifest
+- icon-192.png
+- icon-512.png
+- apple-touch-icon.png
+- favicon-32.png
 
-注意:
-public/trophies/trophies のように二重フォルダにしないでください。
-public/illustrations/illustrations もNGです。
+## フォルダについて
+この版では trophies フォルダ、illustrations フォルダは不要です。
+残っていても問題ありませんが、表示には使いません。
+
+## チェック
+残存外部画像参照: 0
+主要絵文字チェック: {'🔥': 0, '🏆': 0, '📱': 0, '📦': 0, '🎯': 0, '📚': 0, '🎉': 0, '❓': 0}

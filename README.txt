@@ -1,10 +1,9 @@
-# Rearning UI v3.6
+# Rearning UI v2.0 Staff Release
 
-## 修正内容
-- 学習内テスト（quizタブ）を開いている間は、上部の丸ナビを非表示
-- テスト以外のタブに戻ると、上部の丸ナビを再表示
-- CH6 / CH7 の両方に適用
-- APP_VERSIONをv3.6へ更新
+## 内容
+- 中身は最新のUI修正版です
+- スタッフ展開用に、画面上のバージョン表記を v2.0 に変更しています
+- 自分画面のR削除、学習タブ修正、テスト中の丸ナビ非表示、ロック画面修正などは維持しています
 
 ## 使い方
-GitHubの Reearning / public / index.html を、この index.html で上書きしてください。
+GitHubの Rearning / public / index.html を、この index.html で上書きしてください。

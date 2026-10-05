@@ -1,10 +1,12 @@
 /* Rearning Service Worker - v2.0 offline cache */
-const CACHE_NAME = "rearning-v2-0-offline-cache-v4-hikari-20261005";
+const CACHE_NAME = "rearning-v2-0-offline-cache-v5-ux-20261005";
 
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
+  "./ui-ux.css?v=20261005",
+  "./ui-ux.js?v=20261005",
   "./icon-192.png",
   "./icon-512.png",
   "./apple-touch-icon.png",

@@ -533,6 +533,48 @@ body{padding-bottom:92px;font-size:15px;line-height:1.55}
   background:linear-gradient(135deg,#FF6B6B,#FFB86C);
 }
 
+
+/* Hikari Plus: readable cards and locally scrollable comparison tables */
+.hp-guide{font-size:14px;line-height:1.75;color:#27313b;overflow-wrap:anywhere}
+.hp-hero{background:linear-gradient(125deg,#fff2e6,#fff7f4 60%,#fff0f7);border:1px solid #f5d8c5;padding:22px;border-radius:18px;margin:8px 0 18px}
+.hp-eyebrow{font-size:11px;font-weight:700;letter-spacing:.06em;color:#9a4b19}
+.hp-hero h2{font-size:27px;line-height:1.3;margin:10px 0;color:#52270e}
+.hp-hero p{margin:10px 0 16px;font-size:15px}
+.hp-shortcuts{display:flex;gap:8px;flex-wrap:wrap}
+.hp-shortcuts button{background:white;border:1px solid #d9b29a;border-radius:20px;padding:10px 14px;font-size:13px;font-weight:700;color:#703415;cursor:pointer;min-height:44px}
+.hp-card{background:#fff;border:1px solid #e4e7ec;border-radius:14px;margin:12px 0;overflow:hidden;scroll-margin-top:230px}
+.hp-card summary{display:flex;align-items:center;gap:12px;padding:16px;cursor:pointer;list-style:none;min-height:58px}
+.hp-card summary::-webkit-details-marker{display:none}
+.hp-card summary b{display:block;font-size:15px;color:#232936}
+.hp-card summary small{display:block;color:#66707d;font-size:12px;margin-top:3px}
+.hp-index{flex:none;width:32px;height:32px;background:#fff1e5;color:#a74609;border-radius:10px;text-align:center;line-height:32px;font-size:12px;font-weight:800}
+.hp-arrow{margin-left:auto;font-size:20px;color:#a74609}
+.hp-card[open] .hp-arrow{transform:rotate(45deg)}
+.hp-card[open] summary{background:#fffaf6;border-bottom:1px solid #eee5dd}
+.hp-body{padding:16px;min-width:0}
+.hp-body .cardlead,.hp-body .bl,.hp-body .kvv{font-size:14px;line-height:1.85}
+.hp-body .sech{margin-top:20px;font-size:14px}
+.hp-body .kv{display:block}
+.hp-body .kvk{display:block;font-weight:700;margin-bottom:4px}
+.hp-note{background:#fff6df;border-left:3px solid #ca8e22;border-radius:0 8px 8px 0;padding:12px;margin:14px 0;font-size:13px}
+.hp-tablewrap{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch;margin:14px 0;border:1px solid #e5e8ec;border-radius:10px}
+.hp-table{width:100%;border-collapse:collapse;min-width:490px;font-size:13px;line-height:1.6;table-layout:auto}
+.hp-table caption{text-align:left;padding:10px 12px;font-weight:700;color:#723919;background:#fff9f4}
+.hp-table th,.hp-table td{padding:11px 12px;border-bottom:1px solid #e8ebef;text-align:left;vertical-align:top}
+.hp-table thead th{background:#f4f6f8;color:#4b5662;font-size:12px;white-space:nowrap}
+.hp-table tbody th{font-weight:600;min-width:125px}
+.hp-table tbody tr:last-child>*{border-bottom:0}
+.hp-table small{display:block;color:#6b7480;font-size:11px}
+.hp-table strong{color:#b2480b;font-size:16px;white-space:nowrap}
+.hp-table td b{white-space:nowrap}
+.hp-subheading{font-size:15px;margin:24px 0 8px;color:#603218}
+.hp-group{margin:28px 0 10px;font-size:16px;color:#303944}
+.hp-muted{font-size:12px;color:#68717b;line-height:1.8}
+.hp-guide .src{gap:10px;flex-wrap:wrap}
+.hp-guide a{overflow-wrap:anywhere}
+.hp-guide summary:focus-visible,.hp-guide button:focus-visible,.hp-tablewrap:focus-visible{outline:3px solid #bc671c;outline-offset:3px}
+@media(max-width:480px){.hp-hero{padding:17px}.hp-hero h2{font-size:24px}.hp-card summary{padding:13px;gap:9px}.hp-body{padding:13px}.hp-tablewrap:before{content:'表は左右にスクロールできます';display:block;padding:6px 10px;font-size:11px;color:#68717b;background:#f8f9fb}.hp-shortcuts button{padding:9px 11px}.hp-guide .card .head{flex-wrap:wrap}}
+
 </style>
 </head>
 <body>
@@ -1634,7 +1676,7 @@ return {init:init, html:CH6_HTML};
 })();
 
 window.CH7=(function(){
-var CH7_HTML="<nav id=\"nav\">\n  <button class=\"on\" data-t=\"ov\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>全体像</i></button>\n  <button data-t=\"card\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>auカード</i></button>\n  <button data-t=\"energy\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>でんき</i></button>\n  <button data-t=\"netbase\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>ネット基礎</i></button>\n  <button data-t=\"net\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>回線</i></button>\n  <button data-t=\"bank\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>銀行</i></button>\n  <button data-t=\"ocard\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>他社クレカ</i></button>\n  <button data-t=\"oenergy\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>他社でんき</i></button>\n  <button data-t=\"terms\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>用語</i></button>\n  <button data-t=\"quiz\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>テスト</i></button>\n</nav>\n\n<main>\n  <section id=\"ov\" class=\"on\">\n    <p class=\"lead\">商材理解の目的と、提案の土台になる「経済圏」「接客で聞く3つ」。タップで開きます。</p>\n    <div id=\"ovlist\"></div>\n  </section>\n\n  <section id=\"card\">\n    <p class=\"lead\">クレカの本命は<b>ゴールドカードを取ってもらうこと</b>。一般は入口・受け皿として位置づけます。</p>\n    <div id=\"cardlist\"></div>\n  </section>\n\n  <section id=\"energy\">\n    <p class=\"lead\">auでんき・ほくでんガス for au。供給はほくでんで品質は同じ、価値はポイント＋セット割です。</p>\n    <div id=\"energylist\"></div>\n  </section>\n\n  <section id=\"netbase\">\n    <p class=\"lead\">ネットの土台。仕組み・回線とプロバイダ・手続き名（新規/転用/事業者変更/回線再利用）。</p>\n    <div id=\"netbaselist\"></div>\n  </section>\n\n  <section id=\"net\">\n    <p class=\"lead\">auひかり・BIGLOBE光・J:COM・WiMAX。料金と申込のポイントを北海道前提で。</p>\n    <div id=\"netlist\"></div>\n  </section>\n\n  <section id=\"bank\">\n    <p class=\"lead\">auじぶん銀行。役割は「商品の説明」ではなく「サービスの紹介」。コンプラが最重要です。</p>\n    <div id=\"banklist\"></div>\n  </section>\n\n  <section id=\"ocard\">\n    <p class=\"lead\">他社クレカ（楽天・PayPay・dカード）。否定せず、経済圏の相性と総額で比較します。</p>\n    <div id=\"ocardlist\"></div>\n  </section>\n\n  <section id=\"oenergy\">\n    <p class=\"lead\">他社でんき（楽天・ドコモ・SoftBank）。電気料金自体は大差なく、経済圏との相性で選びます。</p>\n    <div id=\"oenergylist\"></div>\n  </section>\n\n  <section id=\"terms\">\n    <p class=\"lead\">商材を覚える前に、土台の用語から。</p>\n    <div id=\"termlist\"></div>\n  </section>\n\n  <section id=\"quiz\">\n    <div id=\"quizarea\"></div>\n  </section>\n</main>";
+var CH7_HTML="<nav id=\"nav\">\n  <button class=\"on\" data-t=\"ov\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>全体像</i></button>\n  <button data-t=\"card\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>auカード</i></button>\n  <button data-t=\"energy\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>でんき</i></button>\n  <button data-t=\"netbase\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>ネット基礎</i></button>\n  <button data-t=\"net\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>回線</i></button>\n  <button data-t=\"bank\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>銀行</i></button>\n  <button data-t=\"ocard\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>他社クレカ</i></button>\n  <button data-t=\"oenergy\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>他社でんき</i></button>\n  <button data-t=\"terms\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>用語</i></button>\n  <button data-t=\"quiz\"><span class=\"ring\"><span><span class=\"face\"></span></span></span><i>テスト</i></button>\n</nav>\n\n<main>\n  <section id=\"ov\" class=\"on\">\n    <p class=\"lead\">商材理解の目的と、提案の土台になる「経済圏」「接客で聞く3つ」。タップで開きます。</p>\n    <div id=\"ovlist\"></div>\n  </section>\n\n  <section id=\"card\">\n    <p class=\"lead\">クレカの本命は<b>ゴールドカードを取ってもらうこと</b>。一般は入口・受け皿として位置づけます。</p>\n    <div id=\"cardlist\"></div>\n  </section>\n\n  <section id=\"energy\">\n    <p class=\"lead\">auでんき・ほくでんガス for au。供給はほくでんで品質は同じ、価値はポイント＋セット割です。</p>\n    <div id=\"energylist\"></div>\n  </section>\n\n  <section id=\"netbase\">\n    <p class=\"lead\">ネットの土台。仕組み・回線とプロバイダ・手続き名（新規/転用/事業者変更/回線再利用）。</p>\n    <div id=\"netbaselist\"></div>\n  </section>\n\n  <section id=\"net\">\n    <p class=\"lead\">auひかりプラスを中心に、タイプ・料金・提案の順で確認。従来サービスは下部に掲載。</p>\n    <div id=\"netlist\"></div>\n  </section>\n\n  <section id=\"bank\">\n    <p class=\"lead\">auじぶん銀行。役割は「商品の説明」ではなく「サービスの紹介」。コンプラが最重要です。</p>\n    <div id=\"banklist\"></div>\n  </section>\n\n  <section id=\"ocard\">\n    <p class=\"lead\">他社クレカ（楽天・PayPay・dカード）。否定せず、経済圏の相性と総額で比較します。</p>\n    <div id=\"ocardlist\"></div>\n  </section>\n\n  <section id=\"oenergy\">\n    <p class=\"lead\">他社でんき（楽天・ドコモ・SoftBank）。電気料金自体は大差なく、経済圏との相性で選びます。</p>\n    <div id=\"oenergylist\"></div>\n  </section>\n\n  <section id=\"terms\">\n    <p class=\"lead\">商材を覚える前に、土台の用語から。</p>\n    <div id=\"termlist\"></div>\n  </section>\n\n  <section id=\"quiz\">\n    <div id=\"quizarea\"></div>\n  </section>\n</main>";
 /* ===================== 商材コンテンツ（台本ベース・北海道前提） ===================== */
 const warnbox=t=>`<div style="font-size:12px;line-height:1.55;background:#FCE8E6;border-left:3px solid #C5221F;border-radius:0 7px 7px 0;padding:9px 11px;margin:11px 0 4px;color:#1F2328"><b style="color:#C5221F">⚠ つまずき・注意</b><br>${t}</div>`;
 const srcrow=(l,u)=>`<div class="src" style="margin-top:11px"><span>${l}</span><a href="${u}" target="_blank" rel="noopener">公式で確認 ›</a></div>`;
@@ -1693,13 +1735,13 @@ const CARDS={
     {t:"本命は「ゴールドを取ること」", sub:"提案のゴール",
      lead:"クレカ提案の本命は<b>au PAYゴールドカードを取ってもらうこと</b>です。一般カードは入口・受け皿であり、auをしっかり使うお客様にはゴールドを軸に提案します。「カードを作ってもらう」ではなく「ゴールドで毎月得をしてもらう」と考えるのがポイントです。",
      secs:[
-      {h:"なぜゴールドか", lines:["対象条件を満たすと<b>通信料金に対する還元特典</b>が大きい","au利用中なら<b>auひかり・au one net</b>も特典対象になる","付帯保険・空港ラウンジ・優待・トラベルデスクが充実","与信枠が20万〜300万と一般より大きい"]},
+      {h:"なぜゴールドか", lines:["対象条件を満たすと<b>通信料金に対する還元特典</b>が大きい","<b>auひかりプラス（BIGLOBE・So-net・@nifty）</b>も条件付きで特典対象。auひかり（au one net）とは対象条件を分けて確認","付帯保険・空港ラウンジ・優待・トラベルデスクが充実","与信枠が20万〜300万と一般より大きい"]},
       {h:"提案の型", lines:["まず携帯の使い方・料金を聞く","ゴールドの還元特典を<b>数字で</b>見せる","年会費11,000円を上回るかを一緒に確認する"]}
      ]},
     {t:"au PAYゴールドカード", sub:"本命・年会費11,000円",
      lead:"auをしっかり使う人の本命カードです。ショッピングの通常還元1%は一般と同じですが、ゴールドから残高にチャージしてau PAYで払うと還元率が上がり、さらに対象条件で通信料金にも還元特典が付きます。",
      secs:[
-      {h:"押さえる数字", lines:["年会費<b>11,000円</b>、通常還元1%は一般と同じ","ゴールドからau PAY残高へチャージ→au PAYで支払うと<b>還元率UP</b>（上限・条件あり、必ず最新確認）","与信枠<b>20万〜300万</b>（一般より高い）","対象条件を満たすと<b>通信料金に還元特典</b>。au利用中ならauひかり・au one netも対象","家族カードを作ると、対象条件下で家族分も特典対象になる場合がある"]},
+      {h:"押さえる数字", lines:["年会費<b>11,000円</b>、通常還元1%は一般と同じ","ゴールドからau PAY残高へチャージ→au PAYで支払うと<b>還元率UP</b>（上限・条件あり、必ず最新確認）","与信枠<b>20万〜300万</b>（一般より高い）","対象条件を満たすと<b>通信料金に還元特典</b>。auひかりプラスも所定条件で対象（回線ページのゴールド特典を確認）","家族カードを作ると、対象条件下で家族分も特典対象になる場合がある"]},
       {h:"特典・付帯", lines:["家族カード<b>1枚目無料／2枚目以降2,200円</b>、ETC発行手数料無料","<b>空港ラウンジ</b>（新千歳は国内線・国際線それぞれに対象ラウンジ）","ホテル・レンタカー優待、トラベルデスク","一般カードより補償内容が充実"]},
       {h:"申し込み条件", lines:["満18歳以上","本人または配偶者に定期収入がある（正社員・自営業・フリーランス等）","年会費11,000円"], talk:"毎月の携帯料金、ご家族で◯円くらいですか？ ゴールドで払うと通信料に還元が付くので、年会費を引いても得になる計算です。新千歳のラウンジも使えますよ"}
      ],
@@ -1771,8 +1813,8 @@ const CARDS={
     {t:"手続き名の整理", sub:"新規・転用・事業者変更・回線再利用",
      lead:"ネット商材で必ず出てくるのが手続き名です。今のお客様の状況によってどれになるかが変わるので、4つを正確に区別します。聞き取りを間違えると手続きが進みません。",
      secs:[
-      {h:"4つの手続き", lines:["<b>新規申込</b>＝光の契約がない人","<b>転用</b>＝フレッツ光からの変更","<b>事業者変更</b>＝光コラボからの変更","<b>回線再利用</b>＝既存回線を再利用（回線再利用承諾番号が必要）"]},
-      {h:"つまずきやすい点", lines:["auひかりは事業者変更ではなく<b>「新規申込」扱い</b>","回線再利用は<b>シェアドアクセスのみ対応</b>のケースがある","転用・事業者変更で品目変更があると、工事費を一括請求する場合がある"]}
+      {h:"4つの手続き", lines:["<b>新規申込</b>＝回線がない、または現在の回線を引き継がず新たに契約する人","<b>転用</b>＝フレッツ光からの変更","<b>事業者変更</b>＝光コラボからの変更","<b>回線再利用</b>＝既存回線を再利用（回線再利用承諾番号が必要）"]},
+      {h:"つまずきやすい点", lines:["従来のauひかりとauひかりプラスを区別。<b>プラスのタイプ3は転用・事業者変更に対応</b>。タイプ1は対応条件下で光回線再利用を確認","回線再利用は<b>シェアドアクセスのみ対応</b>のケースがある","転用・事業者変更で品目変更があると、工事費を一括請求する場合がある"]}
      ],
      warn:"お客様の今の契約（なし／フレッツ／光コラボ）で手続き名が変わります。<b>現状確認を最初に</b>行ってから手続きを選びます。", src:srcrow("auひかり（手続き・公式）", "https://www.au.com/internet/")}
   ],
@@ -1979,6 +2021,112 @@ const CARDS={
 
 };
 
+
+/* auひかりプラス教材 / 2026-10-05 / BIGLOBE料金例 */
+const HP_SOURCES={
+ home:'https://www.au.com/internet/auhikari_plus-home/',
+ mansion:'https://www.au.com/internet/auhikari_plus-mansion/',
+ wireless:'https://www.au.com/internet/auhikari_plus-wireless/',
+ monthly:'https://www.au.com/internet/campaign/monthly-discount/',
+ debut:'https://www.au.com/internet/campaign/wi-fi_pack/',
+ denki:'https://www.au.com/energy/auhikariplus/',
+ wifi:'https://www.au.com/internet/service/auhikari_plus/wi-fi_pack/',
+ flow:'https://www.au.com/internet/auhikari_plus-flow/',
+ gold:'https://www.kddi-fs.com/merit/point/au_hikari',
+ router:'https://www.kddi.com/phone/volte/hr/',
+ biglobe:'https://join.biglobe.ne.jp/ftth/hikari/plus/faq/faq-bhp614.html',
+ sonet:'https://www.so-net.ne.jp/info/2026/op20260917_0001.html',
+ nifty:'https://setsuzoku.nifty.com/auhikari_plus/',
+ area:'https://bb-application.au.kddi.com/auhikari/zipcode'
+};
+const hpLinks=(pairs)=>pairs.map(([label,key])=>srcrow(label,HP_SOURCES[key])).join('');
+const hpTable=(heads,rows,label)=>`<div class="hp-tablewrap" tabindex="0" role="region" aria-label="${label}（横にスクロールできます）"><table class="hp-table"><caption>${label}</caption><thead><tr>${heads.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((v,i)=>i===0?`<th scope="row">${v}</th>`:`<td>${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const HP_PLANS=[
+ {name:'ホーム1ギガ',type:'タイプ1・3',net:5720,monthly:1188,kind:'home'},
+ {name:'ホーム10ギガ',type:'タイプ1・3',net:6380,monthly:1848,kind:'home'},
+ {name:'マンション1ギガ',type:'タイプ3',net:4642,monthly:627,kind:'mansion'},
+ {name:'マンション10ギガ',type:'タイプ3',net:6380,monthly:1848,kind:'mansion'},
+ {name:'ワイヤレス',type:'タイプ2',net:4642,monthly:0,kind:'wireless'}
+];
+const hpYen=n=>n.toLocaleString('ja-JP')+'円';
+const HP_CARDS=[
+ {id:'start',t:'まずは30秒で理解',sub:'工事前から使えるネット',lead:'auひかりプラスは、<b>光回線とauのモバイル回線に対応する専用ルーター</b>を使うサービスです。まずはこの3点を覚えましょう。',secs:[
+ {h:'① 工事前もネットが使える',lines:['ルーターが届き、利用できる電波環境なら、コンセントにつないでモバイル通信を開始できます。','光の工事を待つ間も、同じルーターで動画視聴や仕事に使えます。到着日・速度は確約しません。']},
+ {h:'② タイプ1・3は、開通後に光へ',lines:['光工事後にONUなどの機器を接続すると、光通信に切り替わります。切替申込やスマホのWi-Fi再設定は原則不要です。','タイプ2（ワイヤレス）はモバイル通信のみ。光工事を行いません。']},
+ {h:'③ 住所と建物で使えるプランが決まる',lines:['戸建て・マンション、1ギガ・10ギガの提供可否を住所で確認。タイプを自由に選べるとは案内しません。','<b>北海道で10ギガを検討する場合はタイプ3の提供判定を確認</b>します。全国どこでも使える意味ではありません。']},
+ {h:'お客様へのひとこと',talk:'光の工事を待っている間も、専用ルーターが届けば電波を使ってネットを始められます。まず、ご住所で使えるプランを確認しますね。'}
+ ],warn:'「工事前から利用できる」ことと「光工事が不要」は別です。タイプ1・3は工事が必要な場合があります。',src:hpLinks([['au公式・開通の流れ','flow'],['提供エリアを確認','area']])},
+ {id:'types',t:'タイプ1・2・3の違い',sub:'回線・工事・対応プラン',lead:'<b>タイプは回線の種類、ホーム／マンションは住居向けプラン</b>です。この2つを分けて覚えます。',html:hpTable(['タイプ','使う回線','光開通後・工事'],[
+ ['1｜auひかり系','auひかり（自前・シェアド）＋au 5G','光で利用／工事あり（一部例外）'],
+ ['2｜ワイヤレス','au 5Gなどのモバイル回線のみ','モバイルで継続／光工事なし'],
+ ['3｜NTT光コラボ系','NTT東西の光回線＋au 5G','光で利用／工事・既存設備利用を確認']
+ ],'3タイプの比較')+hpTable(['プラン','対応タイプ','最大速度'],[
+ ['ホーム10ギガ','1・3（北海道は3の提供判定を確認）','上り・下り10Gbps'],['ホーム','1・3','上り・下り1Gbps'],['マンション10ギガ','3','上り・下り10Gbps'],['マンション','3','最大1Gbps／建物設備による'],['ワイヤレス','2／戸建て・集合住宅','モバイル下り2.7Gbps※']
+ ],'プランの対応'),secs:[
+ {h:'速度の数字は保証ではありません',lines:['10ギガは一部エリア・対応設備のある建物で提供。実際の速度は回線混雑、端末、Wi-Fi環境で変わります。','※2.7Gbpsは一部エリアの理論値です。北海道で2.7Gbpsが出るという意味ではありません。5Gエリア内でも4G LTE・WiMAX 2＋になる場合があります。']},
+ {h:'選べるプロバイダ',lines:['BIGLOBE：タイプ1・2・3。料金はこのページの基準です。','@nifty：タイプ1・2・3。料金や受付条件は@nifty公式で確認。','So-net：2026年9月17日の提供開始案内はタイプ1・2。追加対応や現在の受付はSo-net公式で確認。','<b>BIGLOBE光プラス by auひかりプラス</b>と、従来の<b>BIGLOBE光（BLひかり）</b>は別サービスです。']}
+ ],src:hpLinks([['ホーム','home'],['マンション','mansion'],['ワイヤレス','wireless'],['ルーターの公式仕様','router'],['So-net提供開始案内','sonet'],['@nifty','nifty']])},
+ {id:'prices',t:'料金｜通常と割引後を比較',sub:'BIGLOBE・2年契約・税込',lead:'<b>すべて月額・税込。プロバイダはBIGLOBE、2年契約の例です。</b><br>通常＝2年契約の料金から期間限定割引等を引く前。契約期間のない「標準契約」の料金とは異なります。',html:
+ '<div class="hp-note">必須ルーター <b>858円</b> ＋ 任意Wi-Fiパック <b>770円</b><br>以下の合計にはルーター代を含みます。858円をもう一度足さないでください。</div>'+
+ hpTable(['プラン／タイプ','ネット＋ルーター','Wi-Fiパック込み<br>通常月額'],HP_PLANS.map(p=>[p.name+'<small>'+p.type+'</small>',hpYen(p.net+858),'<b>'+hpYen(p.net+858+770)+'</b>']),'通常料金の一覧')+
+ '<h3 class="hp-subheading">割引の内訳 → 最初の割引後月額</h3><p>Wi-Fiパック加入・デビュー割の対象期間中、光プランはさらに2年毎月割の対象期間中の例です。</p>'+
+ hpTable(['プラン','通常月額','割引内訳','割引後'],HP_PLANS.map(p=>[p.name,hpYen(p.net+1628),'Wi-Fi −770円'+(p.monthly?'<br>2年毎月割 −'+hpYen(p.monthly):'<br>2年毎月割 対象外'),'<strong>'+hpYen(p.net+858-p.monthly)+'</strong>']),'割引額の計算')+
+ '<div class="hp-note">例：ホーム1ギガは <b>7,348 − 770 − 1,188 ＝ 5,390円</b>。<br>スマホのセット割・ゴールドのポイントをこの金額からさらに引いて「ネット月額」と案内しません。</div>'+
+ '<h3 class="hp-subheading">割引が終わると、いくら？</h3><p>次は<b>Wi-Fiパック加入・対象auでんき利用を継続</b>した場合の月額です。割引ごとに開始月が違うため、まず適用中の割引を確認します。</p>'+
+ hpTable(['光プラン','デビュー割＋毎月割','でんき330円割＋毎月割','毎月割終了<br>でんき330円割のみ','毎月割終了<br>でんき110円割のみ'],HP_PLANS.filter(p=>p.kind!=='wireless').map(p=>[p.name,hpYen(p.net+858-p.monthly),hpYen(p.net+858+440-p.monthly),hpYen(p.net+858+440),hpYen(p.net+858+660)]),'光プラン・適用中の割引別の月額')+
+ hpTable(['ワイヤレス','利用開始月を含む13カ月目まで','14〜37カ月目','38カ月目〜'],[['タイプ2','5,500円','5,940円','6,160円']],'ワイヤレス・公式掲載の月額例（開始月の請求は契約条件を確認）')+
+ '<div class="hp-note">デビュー割は利用開始月＋翌月から12カ月、2年毎月割は光開通翌月から最大24カ月。でんき330円割はデビュー割終了後から最大24カ月、以降110円割です。<br>でんきセット割の対象でなければ、デビュー割終了後のWi-Fiパックは<b>770円／月</b>です（上の例に330円または110円を加算）。<br>2年毎月割の対象でなければ、その割引期間の例にプラン別の1,848円／1,188円／627円を加算します。</div>',secs:[
+ {h:'月額とは別に確認するもの',lines:['登録料、工事費（相当額割引の条件）、通話料、電話（N）の料金差、各種ユニバーサルサービス料・電話リレーサービス料等。','端数処理で実際の請求額と差が出る場合があります。So-net・@niftyにこの料金を流用しません。']}
+ ],warn:'「最初の安い料金がずっと続く」は誤り。Wi-Fi割引はサービス開始、2年毎月割は光開通翌月から。開通が遅れると料金変化の時期も変わります。',src:hpLinks([['ホームの基本料金','home'],['マンションの基本料金','mansion'],['ワイヤレスの基本料金','wireless'],['2年毎月割の条件','monthly']])},
+ {id:'discounts',t:'割引・初期費用・解約',sub:'開始月と終了後まで確認',secs:[
+ {h:'2年毎月割｜BIGLOBE・指定窓口',lines:['ホーム／マンション10ギガ：<b>−1,848円×最大24カ月</b>。','ホーム1ギガ：<b>−1,188円×最大24カ月</b>。','マンション1ギガ：<b>−627円×最大24カ月</b>。','光開通月の翌月から適用。ワイヤレス対象外。au Style・auショップ、UQスポット、量販店、併売店、一般店、トヨタau取扱店、auホームページ、KDDIブロードバンドキャンペーンセンター等の指定窓口が対象。','BIGLOBE独自キャンペーン等と併用できない場合があります。受付窓口の施策を確認。']},
+ {h:'Wi-Fiパックデビュー割',lines:['通常770円を<b>初月無料＋翌月から最大12カ月割引</b>。終了後は通常770円／月。','auひかりプラスとWi-Fiパックへの申込が必要。後からパックに加入しても、対象期間の終了は延びません。']},
+ {h:'auひかりプラス でんきセット割',lines:['Wi-Fiパックから<b>最大24カ月330円／月、以降110円／月</b>割引。','プラスの5G利用開始＋Wi-Fiパック利用＋対象auでんきの開通＋請求のおまとめが必要。対象はauでんき・auでんきオール電化プラン・auでんきecoプラン。','<b>デビュー割とは重複しません。</b>デビュー割終了後から330円割引が始まります。継続して条件を満たす必要があります。']},
+ {h:'ひかり準備割｜光を待つ間',lines:['タイプ1・3の対象光プランで、5G先行利用中のネット4,642円＋ルーター858円を、<b>初月＋最大3カ月</b>割引。','光開通月までが対象。光開通月は先行利用料金・準備割を満額適用。最大期間を過ぎても無料が続くとは案内しません。','ワイヤレスは対象外。工事不可などでワイヤレスへ変更する場合も割引終了条件を確認します。']},
+ {h:'初期費用｜BIGLOBE・公式掲載例',lines:['登録料：<b>4,950円</b>。','光の回線新規工事：ホーム<b>39,600円（1,650円×24回）</b>／マンション<b>26,400円（1,100円×24回）</b>。','初期費用相当額割引：条件を満たすと工事費相当を最大24カ月割引。<b>工事費そのものが0円になるわけではありません。</b>','タイプ3の転用・事業者変更：公式掲載例は登録料4,950円＋工事費3,300円。初期費用相当額割引の対象外。速度変更・電話追加等は別途確認。','ワイヤレス：光回線の工事費なし。登録料等は必要です。']},
+ {h:'解約時に確認する3つ',lines:['① 契約解除料：BIGLOBE・2年契約は<b>3,102円</b>。満了月・翌月・翌々月は不要。','② 工事費残債：割引期間中の解約では割引終了・残債支払いが生じる場合があります。','③ 機器返却：ルーター等のレンタル機器を返却。未返却費用等を確認。','契約更新月と2年毎月割の終了月は一致しない場合があります。']}
+ ],src:hpLinks([['2年毎月割','monthly'],['デビュー割','debut'],['でんきセット割','denki'],['準備割・初期費用','home'],['マンション初期費用','mansion']])},
+ {id:'apply',t:'申込方法｜今の回線から選ぶ',sub:'新規・転用・事業者変更・再利用',lead:'まず「今、ご自宅のネットはどこの会社ですか？」と確認します。<b>現在の契約＋申込先タイプ</b>で手続きが変わります。',html:hpTable(['今の状況','申込方法','申込先'],[
+ ['回線なし／今の回線を引き継がない','新規申込','タイプ1・2・3'],['フレッツ光を利用中','転用','タイプ3'],['ドコモ光・SoftBank光等の光コラボ','事業者変更','タイプ3'],['光コラボの引込線等を流用できる条件を満たす','光回線再利用','タイプ1（シェアド等の対応条件を確認）']
+ ],'現在の回線と申込方法'),secs:[
+ {h:'言葉の意味',lines:['FTTH：光ファイバーを使う固定回線。','転用：フレッツ光から光コラボへ変更する手続き。','事業者変更：光コラボから別の光コラボへ変更する手続き。','光回線再利用：引込線など設備の一部を流用する方法。工事や立ち会いが不要とは限りません。']},
+ {h:'開通までの流れ',lines:['① 住所・建物・現在契約を確認して申込 → 本人確認。','② ルーター到着 → 電源を入れてモバイル通信を開始。','③ タイプ1・3は光工事日を調整 → 工事 → ONUなど機器を接続。','④ 光回線での利用を確認。タイプ2は②で利用開始できます。']},
+ {h:'日数の案内',lines:['本文では「ルーターが届いてから利用開始」と案内。最短日数を約束しません。','BIGLOBE公式は申込から最短4日を案内していますが、本人確認・配送・電波環境等により変わります。','工事までの期間は住所・申込方法で異なります。「必ず1〜2カ月短縮」とは案内しません。']}
+ ],warn:'既存回線や固定電話を先に解約しないでください。番号引継ぎ、切替日、旧契約の解約要否・費用を確認してから進めます。',src:hpLinks([['開通までの流れ','flow'],['BIGLOBEの利用開始目安','biglobe']])},
+ {id:'wifi',t:'Wi-Fiパックと固定電話',sub:'月額770円／申込・設定を確認',lead:'Wi-Fiパックは、<b>高速6GHz帯やセキュリティ、電話などをまとめた任意オプション</b>です。「入らないとWi-Fiが一切使えない」ではありません。',secs:[
+ {h:'Wi-Fi 7・6GHz帯',lines:['Wi-Fiパックで6GHz帯を利用可能。対応端末が必要で、速度は端末・距離・障害物などに左右されます。','ルーターと端末のWi-Fi速度と、インターネット回線の速度は別の数字です。']},
+ {h:'ホームネットワークプロテクション',lines:['ハイブリッドホームルーターを経由するWi-Fi・有線通信を保護。<b>auひかりアプリで設定が必要</b>です。','スマホを外出先のモバイル通信で使う場合まで保護するサービスではありません。']},
+ {h:'電話（K）を申し込む場合',lines:['Wi-Fiパックの料金で、電話（K）・迷惑電話発着信ブロック・着信転送が追加月額なしで利用可能。<b>それぞれ申込が必要</b>です。','通話料や電話ユニバーサルサービス料等は別途。電話代がすべて無料になるわけではありません。','相手番号の表示は別オプション等を確認。迷惑電話対策と番号表示は別機能です。']},
+ {h:'電話（N）の場合',lines:['提供プロバイダ・料金・内容が電話（K）と異なります。','上記の迷惑電話発着信ブロック・着信転送は、電話（N）では利用できません。同等機能の提供条件はプロバイダに確認。']},
+ {h:'ギガぞうWi-Fi',lines:['対応する公衆Wi-Fiスポットを最大5台の機器で利用できます。<b>別途利用登録が必要</b>です。']},
+ {h:'提案例',talk:'ご自宅のWi-Fiの6GHz帯に加え、ネットのセキュリティや固定電話もまとめられます。使いたい機能に合わせて、申込と設定まで確認しますね。'}
+ ],src:hpLinks([['Wi-Fiパックの内容','wifi'],['ルーター対応帯域','router']])},
+ {id:'gold',t:'スマホのセット割・ゴールド特典',sub:'ネット月額と分けて説明',secs:[
+ {h:'au・UQのスマホ割引',lines:['auスマートバリュー／自宅セット割インターネットコースの対象スマホプランと、固定通信側の組み合わせを確認し、別途申し込みます。','光は「ネット＋電話」または対象の「ネット＋Wi-Fiパック」等、ワイヤレスは対象料金プランの条件を確認。通常auひかりの条件をそのまま当てはめません。','これは<b>スマホ料金側の割引</b>。ネット月額の値引きとは分けて説明します。']},
+ {h:'au PAYゴールドは最大10％のPonta還元',lines:['通常ポイント：<b>100円（税込）ごとに1P</b>。','ゴールド特典：<b>対象料金1,000円（税抜）ごとに90P</b>。計算単位・対象が異なるため、請求総額×10％とは限りません。','対象プロバイダはBIGLOBE・So-net・@nifty。年会費<b>11,000円（税込）</b>。']},
+ {h:'契約前に確認する条件',lines:['カードに登録した有効なau IDの代表契約が対象のau／UQ回線等であること。','その代表契約と対象ネットの組み合わせで、auスマートバリューまたは自宅セット割インターネットコース等の条件を満たすこと。','auひかりプラスをゴールドカードで支払うこと。支払口座登録や会費等の支払状況など所定条件も確認。','コミコミプランバリュー：自宅セット割の条件を満たし、<b>自宅セット割グループへ加入</b>すること。スマホ基本料がセット割で下がるという意味ではありません。','特典は割引適用後の対象料金で計算。対象外料金・端数等を確認し、還元額は公式条件で算出します。']}
+ ],warn:'「ゴールドで払えば誰でも請求総額の10％が戻る」は誤り。年会費と実際の対象額を含めてメリットを比較します。',src:hpLinks([['ゴールド特典・対象条件','gold']])+srcrow('auスマートバリュー','https://www.au.com/mobile/charge/charge-discount/smartvalue/')+srcrow('UQ 自宅セット割','https://www.uqwimax.jp/mobile/newplan/discount/jitaku-setwari/')},
+ {id:'check',t:'提案前の6つの確認',sub:'質問 → 確認 → 提案',secs:[
+ {h:'① ご住所・住居形態',talk:'戸建てとマンション、どちらにお住まいですか？ご住所で使える回線と速度を確認します。'},
+ {h:'② 現在のインターネット',talk:'今はどこのネットをお使いですか？料金が分かる明細や契約画面はありますか？'},
+ {h:'③ 使い始めたい日',talk:'いつからネットが必要ですか？工事前に電波で使い始められる方法があります。'},
+ {h:'④ 使い方',talk:'何人くらいで、動画・ゲーム・お仕事など、どんな使い方をされていますか？'},
+ {h:'⑤ Wi-Fi・固定電話',talk:'固定電話番号は引き継ぎますか？Wi-Fiや迷惑電話対策など、使いたい機能も確認しますね。'},
+ {h:'⑥ スマホ・カード・でんき',talk:'ご家族のau・UQ、ゴールドカード、auでんきのご利用状況を教えてください。条件を満たす割引だけで比較します。'},
+ {h:'合うお客様と提案理由',lines:['引っ越し・工事待ちでネットが必要：モバイルでの先行利用を提案。','家族の同時利用・大容量通信が多い：対応エリアなら10ギガを比較。回線速度だけでゲームの遅延が必ず改善するとは案内しません。','工事を希望しない／工事できない：タイプ2を候補に、電波・利用目的を確認。','固定電話・セキュリティを使いたい：Wi-Fiパックの対象機能と申込・設定を確認。']},
+ {h:'新人が最後に確認すること',lines:['通常料金・割引後・終了時期・終了後の料金を言えるか。','初期費用、旧回線の解約費、番号引継ぎ、工事費残債を確認したか。','分からない提供判定・併用条件は、先輩や社内システムで確認してから案内する。']},
+ {h:'モバイル通信の注意',lines:['契約住所でのみ利用。引っ越し時は住所変更手続きが必要です。','スタンダードモードは月間容量上限なし。ただし大量通信・混雑時等の速度制御があります。','プラスエリアモードは月30GB。超過時は当月末まで送受信最大128kbps（スタンダードモードには適用されません）。']}
+ ],src:hpLinks([['提供エリアを調べる','area'],['モバイル通信の条件','wireless']])}
+];
+function renderHikariNet(){
+ const el=document.getElementById('netlist');
+ el.innerHTML=`<div class="hp-guide"><div class="hp-hero"><span class="hp-eyebrow">回線の学習 · 2026.10.05確認</span><h2>auひかりプラス</h2><p>工事前から使える。<br><b>タイプ・料金・提案を、この順に。</b></p><div class="hp-shortcuts"><button type="button" data-hp-open="types">タイプの違い</button><button type="button" data-hp-open="prices">料金を見る</button><button type="button" data-hp-open="check">提案チェック</button></div></div>${HP_CARDS.map((c,i)=>`<details class="hp-card" id="hp-${c.id}" ${i===0?'open':''}><summary><span class="hp-index">${String(i+1).padStart(2,'0')}</span><span><b>${c.t}</b><small>${c.sub}</small></span><span class="hp-arrow" aria-hidden="true">＋</span></summary><div class="hp-body">${c.lead?`<div class="cardlead">${c.lead}</div>`:''}${c.html||''}${cardBody({...c,lead:null})}</div></details>`).join('')}<h3 class="hp-group">ほかの提案候補</h3><div id="hp-other-net"></div><h3 class="hp-group">従来サービス・既存契約の確認</h3><p class="hp-muted">auひかり・BLひかりは下部にまとめています。受付終了を意味するものではありません。以下は従来掲載の参考情報です。現契約の料金・提供条件を公式で再確認してください。</p><div id="hp-legacy-net"></div><p class="hp-muted">確認日：2026年10月5日。料金はBIGLOBE・2年契約の例。社内限定施策・他プロバイダの料金は受付時の資料で確認。</p></div>`;
+ const legacy=CARDS.netlist.filter(c=>c.t==='auひかり'||c.t==='BIGLOBE光');
+ renderCards('hp-other-net',CARDS.netlist.filter(c=>!legacy.includes(c)));
+ renderCards('hp-legacy-net',legacy);
+ el.querySelectorAll('[data-hp-open]').forEach(b=>b.addEventListener('click',()=>{const panel=document.getElementById('hp-'+b.dataset.hpOpen);panel.open=true;panel.scrollIntoView({behavior:'smooth',block:'start'});}));
+}
+
 const TERMS=[
   {t:"還元率", d:"支払額に対して何%分のポイントが戻るか。1.0%なら100円で1ポイント。"},
   {t:"年会費", d:"カードを持つために毎年かかる費用。無料カードと、特典が手厚い有料（ゴールド等）がある。"},
@@ -1989,7 +2137,7 @@ const TERMS=[
   {t:"ルーター", d:"ONUから来たインターネットをスマホ・PCに分配する機械。無線LANの一つがWi-Fi。"},
   {t:"回線とプロバイダ", d:"回線＝ネットの道（NTT/KDDI等）、プロバイダ＝接続サービス（BIGLOBE等）。両方で通信できる。"},
   {t:"光コラボ", d:"回線とプロバイダをまとめて提供するサービス（BIGLOBE光等）。回線はNTT、請求は各社。"},
-  {t:"新規申込", d:"光の契約がない人が新たに申し込む手続き。auひかりも事業者変更でなく新規扱い。"},
+  {t:"新規申込", d:"回線がない、または現在の回線を引き継がず新たに申し込む手続き。auひかりプラスは申込先タイプで手続きが異なる。"},
   {t:"転用", d:"フレッツ光から光コラボ等へ変更する手続き。"},
   {t:"事業者変更", d:"光コラボから別の光コラボへ変更する手続き。"},
   {t:"回線再利用", d:"既存回線を再利用する手続き。回線再利用承諾番号が必要。シェアドアクセスのみ対応のケースあり。"},
@@ -2576,7 +2724,7 @@ renderCards("ovlist", CARDS.ovlist);
 renderCards("cardlist", CARDS.cardlist);
 renderCards("energylist", CARDS.energylist);
 renderCards("netbaselist", CARDS.netbaselist);
-renderCards("netlist", CARDS.netlist);
+renderHikariNet();
 renderCards("banklist", CARDS.banklist);
 renderCards("ocardlist", CARDS.ocardlist);
 renderCards("oenergylist", CARDS.oenergylist);

@@ -180,6 +180,7 @@ test('ahamo card and quizzes switch exactly at 12/1 00:00 JST, with no duplicate
   const dec = chapter6('2026-11-30T15:00:00.000Z');
   const card = ({ OTHERS }) => OTHERS.carriers.flatMap(o => o.plans || []).find(p => p.n === 'ahamo');
   assert.match(card(nov).p, /2,970円/);
+  assert.match(card(nov).note, /11\/30まで自動で国内40GB.*国内120GB.*海外は増量中も最大30GB/);
   assert.match(card(nov).note, /12\/1から.*予告/);
   assert.match(card(dec).p, /3,135円.*4,125円.*5,115円/);
   assert.match(card(dec).note, /海外.*最大40GB.*24時間980円/);

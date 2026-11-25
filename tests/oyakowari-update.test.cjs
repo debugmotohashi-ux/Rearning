@@ -10,14 +10,14 @@ const source = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const scripts = [...source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m => m[1]);
 const plain = x => JSON.parse(JSON.stringify(x));
 
-function chapter6() {
+function chapter6(now = "2026-11-25T12:00:00+09:00") {
   const start = source.indexOf('window.CH6=(function(){');
   const end = source.indexOf('window.CH7=(function(){');
   const code = source.slice(start, end).replace(
     'return {init:init, html:CH6_HTML};',
     'return {init:init, html:CH6_HTML, Q:Q, PLANS:PLANS, OTHERS:OTHERS};'
   );
-  const context = { window: {} };
+  const context = { window: {}, Date: class extends Date { static now() { return Date.parse(now); } } };
   vm.runInNewContext(code, context);
   return plain(context.window.CH6);
 }
@@ -155,5 +155,57 @@ test('no legacy records means no storage writes', () => {
   const data = { ch6: { existing: { s: 1, due: '2026-12-01' } }, ch7: {} };
   const c = reviewContext({ rg67_review_v1: JSON.stringify(data) });
   assert.deepEqual(plain(c.Rev.load()), data);
+  assert.equal(c.writeCount(), 0);
+});
+
+test('UQ family eligibility is consistent in the app cards and answer', () => {
+  const { Q, PLANS, OTHERS } = chapter6();
+  const komikomi = PLANS.find(p => p.name === 'コミコミプランバリュー');
+  const family = PLANS.find(p => p.name === 'UQ親子応援割｜対象・家族条件');
+  assert.ok(komikomi);
+  for (const copy of [komikomi.spec['セット割'], family.spec['家族']]) {
+    assert.match(copy, /自宅セット割または家族セット割/);
+  }
+  assert.match(family.spec['家族'], /回線ごと.*申込み/);
+  assert.match(family.detail, /ouenwari\.pdf/);
+  const q = Object.values(Q.own).flat().find(q => q.q.includes('コミコミの大人回線にも適用'));
+  assert.match(q.o[q.a], /自宅セット割または家族セット割/);
+  assert.match(q.o[q.a], /家族回線ごと/);
+  const y = OTHERS.carriers.find(o => o.br === 'ワイモバ');
+  assert.match(y.warn, /申込順序、適用後のプラン変更・子ども回線離脱、超！おトク割との併用は確認待ち/);
+});
+
+test('ahamo card and quizzes switch exactly at 12/1 00:00 JST, with no duplicate review keys', () => {
+  const nov = chapter6('2026-11-30T14:59:59.999Z');
+  const dec = chapter6('2026-11-30T15:00:00.000Z');
+  const card = ({ OTHERS }) => OTHERS.carriers.flatMap(o => o.plans || []).find(p => p.n === 'ahamo');
+  assert.match(card(nov).p, /2,970円/);
+  assert.match(card(nov).note, /12\/1から.*予告/);
+  assert.match(card(dec).p, /3,135円.*4,125円.*5,115円/);
+  assert.match(card(dec).note, /海外.*最大40GB.*24時間980円/);
+  const all = ({ Q }) => Object.values(Q).flatMap(track => Object.values(track).flat());
+  const novSet = all(nov);
+  const decSet = all(dec);
+  const newComparison = decSet.find(q => q.q.includes('ahamoとLINEMOベストプランVに共通する'));
+  assert.match(newComparison.o[newComparison.a], /5分以内の国内通話込み/);
+  assert.ok(!novSet.some(q => q.q === newComparison.q));
+  assert.ok(!decSet.some(q => q.q.includes('30GB・2,970円・5分国内通話込み')));
+  const { qhash } = reviewContext();
+  assert.equal(new Set(decSet.map(q => qhash(q.q))).size, 270);
+  for (const q of decSet) assert.ok(q.o.length === 4 && typeof q.o[q.a] === 'string');
+  assert.match(fs.readFileSync(path.join(root, 'service-worker.js'), 'utf8'), /v8-ahamo-oyakowari/);
+});
+
+test('old ahamo review is kept but does not surface a stale answer after cutover', () => {
+  const oldText = 'ahamoの基本データ容量として正しいものはどれですか？';
+  const { qhash } = reviewContext();
+  const entry = { s: 1, due: '2026-11-25' };
+  const c = reviewContext({ rg67_review_v1: JSON.stringify({ ch6: { [qhash(oldText)]: entry } }) });
+  const all = ({ Q }) => Object.values(Q).flatMap(track => Object.values(track).flat());
+  c.Rev.now = () => new Date('2026-11-30T12:00:00');
+  assert.equal(c.Rev.dueList('ch6', all(chapter6())).map(q => q.q).join(), oldText);
+  c.Rev.now = () => new Date('2026-12-01T12:00:00');
+  assert.equal(c.Rev.dueList('ch6', all(chapter6('2026-12-01T00:00:00+09:00'))).length, 0);
+  assert.deepEqual(plain(c.Rev.load().ch6[qhash(oldText)]), entry);
   assert.equal(c.writeCount(), 0);
 });

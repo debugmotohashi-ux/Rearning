@@ -1,5 +1,5 @@
 /* Rearning Service Worker - v2.0 offline cache */
-const CACHE_NAME = "rearning-v2-0-offline-cache-v7-oyakowari-20261118";
+const CACHE_NAME = "rearning-v2-0-offline-cache-v8-ahamo-oyakowari";
 
 const CORE_ASSETS = [
   "./",
